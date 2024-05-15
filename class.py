@@ -29,4 +29,6 @@ class Calculadora(App):
             layout.add_widget(Button(text=operation, on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                      font_size=20))
 
+if __name__ == "__main__":
+    Calculadora().run()
                                  
