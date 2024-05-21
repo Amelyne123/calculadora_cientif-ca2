@@ -52,6 +52,60 @@ class Calculadora(App):
 
         return layout
 
+    def on_button_press(self, instance):
+        if instance.text == '=':
+            try:
+                result = str(eval(self.display.text))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'C':
+            self.display.text = ''
+        elif instance.text == 'sin':
+            try:
+                result = str(math.sin(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'cos':
+            try:
+                result = str(math.cos(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'tan':
+            try:
+                result = str(math.tan(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'sqrt':
+            try:
+                result = str(math.sqrt(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'exp':
+            try:
+                result = str(math.exp(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'deg->rad':
+            try:
+                result = str(math.radians(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'rad->deg':
+            try:
+                result = str(math.degrees(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        else:
+            self.display.text += instance.text
+
 
 if __name__ == '__main__':
     Calculadora().run()
