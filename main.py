@@ -17,14 +17,14 @@ class Calculadora(App):
         layout.add_widget(self.display)
 
         for i in range(1, 10):
-         layout.add_widget(Button(text=str(i), on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+            layout.add_widget(Button(text=str(i), on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                      font_size=20))
         layout.add_widget(Button(text='.', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                  font_size=20))
         layout.add_widget(Button(text='0', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                  font_size=20))
 
-        operations = ['+', '-', 'x', '÷']
+        operations = ['+', '-', '*', '÷']
         for operation in operations:
             layout.add_widget(Button(text=operation, on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                      font_size=20))
@@ -43,6 +43,18 @@ class Calculadora(App):
                                  font_size=20))
         layout.add_widget(Button(text='exp', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                  font_size=20))
+        layout.add_widget(Button(text='log', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+                                 font_size=20))
+        layout.add_widget(Button(text='π', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+                                 font_size=20))
+        layout.add_widget(Button(text='(', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+                                 font_size=20))
+        layout.add_widget(Button(text=')', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+                                 font_size=20))
+        layout.add_widget(Button(text='x^y', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+                                 font_size=20))
+        layout.add_widget(Button(text='-', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+                                 font_size=20))
         layout.add_widget(Button(text='deg->rad', on_press=self.on_button_press,
                                  background_color=(0.4, 0.4, 0.4, 1), font_size=15))
         layout.add_widget(Button(text='rad->deg', on_press=self.on_button_press,
@@ -55,7 +67,12 @@ class Calculadora(App):
     def on_button_press(self, instance):
         if instance.text == '=':
             try:
-                result = str(eval(self.display.text))
+                expression = self.display.text.replace('÷', '/').replace('π', str(math.pi))
+                if 'x^y' in expression:
+                    base, exponent = expression.split('x^y')
+                    result = str(float(base) ** float(exponent))
+                else:
+                    result = str(eval(expression))
                 self.display.text = result
             except Exception as e:
                 self.display.text = 'Erro'
@@ -63,19 +80,19 @@ class Calculadora(App):
             self.display.text = ''
         elif instance.text == 'sin':
             try:
-                result = str(math.sin(eval(self.display.text)))
+                result = str(math.sin(math.radians(eval(self.display.text))))
                 self.display.text = result
             except Exception as e:
                 self.display.text = 'Erro'
         elif instance.text == 'cos':
             try:
-                result = str(math.cos(eval(self.display.text)))
+                result = str(math.cos(math.radians(eval(self.display.text))))
                 self.display.text = result
             except Exception as e:
                 self.display.text = 'Erro'
         elif instance.text == 'tan':
             try:
-                result = str(math.tan(eval(self.display.text)))
+                result = str(math.tan(math.radians(eval(self.display.text))))
                 self.display.text = result
             except Exception as e:
                 self.display.text = 'Erro'
@@ -88,6 +105,12 @@ class Calculadora(App):
         elif instance.text == 'exp':
             try:
                 result = str(math.exp(eval(self.display.text)))
+                self.display.text = result
+            except Exception as e:
+                self.display.text = 'Erro'
+        elif instance.text == 'log':
+            try:
+                result = str(math.log10(eval(self.display.text)))
                 self.display.text = result
             except Exception as e:
                 self.display.text = 'Erro'
