@@ -39,7 +39,7 @@ class Calculadora(App):
                                  font_size=20))
         layout.add_widget(Button(text='^', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                  font_size=20))
-        layout.add_widget(Button(text='sqrt', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+        layout.add_widget(Button(text='√', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                  font_size=20))
         layout.add_widget(Button(text='exp', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                  font_size=20))
@@ -96,7 +96,7 @@ class Calculadora(App):
                 self.display.text = result
             except Exception as e:
                 self.display.text = 'Erro'
-        elif instance.text == 'sqrt':
+        elif instance.text == '√':
             try:
                 result = str(math.sqrt(eval(self.display.text)))
                 self.display.text = result
