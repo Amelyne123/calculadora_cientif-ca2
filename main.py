@@ -17,20 +17,20 @@ class Calculadora(App):
         layout.add_widget(self.display)
 
         for i in range(1, 10):
-            layout.add_widget(Button(text=str(i), on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+            layout.add_widget(Button(text=str(i), on_press=self.on_button_press, background_color=(0.4, 0.4, 0.6, 1),
                                      font_size=20))
-        layout.add_widget(Button(text='.', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+        layout.add_widget(Button(text='0', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.6, 1),
                                  font_size=20))
-        layout.add_widget(Button(text='0', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+        layout.add_widget(Button(text='.', on_press=self.on_button_press, background_color=(0.3, 0.3, 0.3, 1),
                                  font_size=20))
+
 
         operations = ['+', '-', '*', '÷']
         for operation in operations:
-            layout.add_widget(Button(text=operation, on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
+            layout.add_widget(Button(text=operation, on_press=self.on_button_press, background_color=(0.3, 0.3, 0.3, 1),
                                      font_size=20))
 
-        layout.add_widget(Button(text='C', on_press=self.on_button_press, background_color=(0.8, 0, 0, 1),
-                                 font_size=20))
+
         layout.add_widget(Button(text='sin', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
                                  font_size=20))
         layout.add_widget(Button(text='cos', on_press=self.on_button_press, background_color=(0.4, 0.4, 0.4, 1),
@@ -60,6 +60,8 @@ class Calculadora(App):
         layout.add_widget(Button(text='rad->deg', on_press=self.on_button_press,
                                  background_color=(0.4, 0.4, 0.4, 1), font_size=15))
         layout.add_widget(Button(text='=', on_press=self.on_button_press, background_color=(0, 0.6, 0, 1),
+                                 font_size=20))
+        layout.add_widget(Button(text='C', on_press=self.on_button_press, background_color=(0.6, 0, 0, 1),
                                  font_size=20))
 
         return layout
