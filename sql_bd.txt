@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS calculadora_cientifica;
+USE calculadora_cientifica;
+
+CREATE TABLE IF NOT EXISTS historico (
+    id_historico INT AUTO_INCREMENT PRIMARY KEY,
+    operacao VARCHAR(1000) NOT NULL,
+    resultado VARCHAR(1000) NOT NULL
+	);
+    
