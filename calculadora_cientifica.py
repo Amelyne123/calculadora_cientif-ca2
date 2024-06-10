@@ -11,7 +11,7 @@ Window.clearcolor = (0, 0, 0, 1)
 Window.size = (380, 690)
 Window.set_icon('icone.png')
 
-class Calculadora(App):
+class CalculadoraC(App):
     def build(self):
         # Fonte personalizada
         self.font_path = 'DejaVuSans.ttf'  # Caminho para a fonte personalizada
@@ -197,5 +197,5 @@ class Calculadora(App):
             self.display.text += instance.text
 
 if __name__ == '__main__':
-    Calculadora().run()
+    CalculadoraC().run()
 

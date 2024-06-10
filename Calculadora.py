@@ -89,6 +89,9 @@ class Calculadora(App):
             valign='middle',
             halign='center'
         )
+        modo_button = Button(text='Login', on_press=self.CalculadoraC)
+        BoxLayout.add_widget(modo_button)
+
         modo_image = Image(source='botaocalculadora.png', size_hint=(None, None), size=(90, 90))
         modo_button.add_widget(modo_image)
         modo_button.bind(size=self.resize_image)
